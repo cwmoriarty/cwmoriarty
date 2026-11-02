@@ -7,9 +7,9 @@
     "desc": "Free, open-source native Synology DSM 7 storage analysis application inspired by WinDirStat, WizTree, SequoiaView, and SpaceSniffer. Features high-speed scanning, squarified cushion treemaps, and historical snapshot comparisons.",
     "link": "https://cpan.zip/packages/syndirstat/syn-dirstat-all-1.0.0.spk",
     "fallback_link": "https://github.com/cwmoriarty/cwmoriarty/releases/download/v1.0.0/syn-dirstat-all-1.0.0.spk",
-    "md5": "ff933379e8adc1789d83c19e3a3cf8b2",
-    "sha256": "a90099369be8bfd510dc73616bfe2652c23d91264190a77a8077fe361afb2358",
-    "size": 4763648,
+    "md5": "d0979c1b61c199bd4a872b6a6a3af357",
+    "sha256": "3995d8f8dbe7cd3b916b2fc935d99df6118396bda7b1870b90734618d523735d",
+    "size": 4763136,
     "icon": "https://cpan.zip/packages/syndirstat/icon_256.png",
     "thumbnail": [
       "https://cpan.zip/packages/syndirstat/icon_256.png"
@@ -48,9 +48,9 @@
     "desc": "SynDirStat 64-bit x86 optimized binary for Intel and AMD Synology NAS servers.",
     "link": "https://cpan.zip/packages/syndirstat/syn-dirstat-x86_64-1.0.0.spk",
     "fallback_link": "https://github.com/cwmoriarty/cwmoriarty/releases/download/v1.0.0/syn-dirstat-x86_64-1.0.0.spk",
-    "md5": "8f8e9794919a4cf636be3e3d1f4cc9b3",
-    "sha256": "5446a1944aa00eea8927e8cec4dfd2c35a748a94795e678a30bcd01f6b5eb988",
-    "size": 4763648,
+    "md5": "0d1d6409a0edf3370e63f7bb4e0e2eec",
+    "sha256": "ff8617fae1ecf73ff7667415924010b5e79c8c2ae933828c3079658e0ca52da1",
+    "size": 4763136,
     "icon": "https://cpan.zip/packages/syndirstat/icon_256.png",
     "thumbnail": [
       "https://cpan.zip/packages/syndirstat/icon_256.png"
@@ -85,9 +85,9 @@
     "desc": "SynDirStat 64-bit ARM optimized binary for Realtek and ARM-based Synology NAS servers.",
     "link": "https://cpan.zip/packages/syndirstat/syn-dirstat-arm64-1.0.0.spk",
     "fallback_link": "https://github.com/cwmoriarty/cwmoriarty/releases/download/v1.0.0/syn-dirstat-arm64-1.0.0.spk",
-    "md5": "02baf70b7e4954d394c2a059a7c6b88f",
-    "sha256": "69bc28857c9b44d16cffb97937d4c46815a9196b946059dff029751863dc5819",
-    "size": 4354560,
+    "md5": "27149eafa6f84ee7650a35afb1f2b345",
+    "sha256": "f4bda8ea1372456d2e2eb6e80aa0bc13e14bc5dd4b8eb99062a63d403632feb9",
+    "size": 4354048,
     "icon": "https://cpan.zip/packages/syndirstat/icon_256.png",
     "thumbnail": [
       "https://cpan.zip/packages/syndirstat/icon_256.png"
