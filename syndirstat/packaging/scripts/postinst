@@ -1,0 +1,23 @@
+#!/bin/sh
+# SynDirStat postinst script for Synology DSM
+SYNOPKG_PKGDEST="/var/packages/syn-dirstat/target"
+SYNOPKG_PKGVAR="/var/packages/syn-dirstat/var"
+
+# Create var directory for persistent SQLite database
+mkdir -p "${SYNOPKG_PKGVAR}"
+chmod 755 "${SYNOPKG_PKGVAR}"
+
+# Set executable permissions on binary and CGI
+chmod 755 "${SYNOPKG_PKGDEST}/bin/syndirstat"
+chmod 755 "${SYNOPKG_PKGDEST}/ui/index.cgi"
+
+# Register in DSM 3rd party webman
+WEBMANDIR="/usr/syno/synoman/webman/3rdparty"
+if [ -d "${WEBMANDIR}" ]; then
+    rm -rf "${WEBMANDIR}/syn-dirstat"
+    mkdir -p "${WEBMANDIR}/syn-dirstat"
+    cp -r "${SYNOPKG_PKGDEST}/ui/"* "${WEBMANDIR}/syn-dirstat/"
+    chmod -R 755 "${WEBMANDIR}/syn-dirstat"
+fi
+
+exit 0

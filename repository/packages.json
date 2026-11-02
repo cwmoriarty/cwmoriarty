@@ -1,0 +1,112 @@
+[
+  {
+    "package": "syn-dirstat",
+    "version": "1.0.0-0001",
+    "dsm_min_ver": "7.0-40000",
+    "name": "SynDirStat",
+    "desc": "Free, open-source native Synology DSM 7 storage analysis application inspired by WinDirStat, WizTree, SequoiaView, and SpaceSniffer. Features high-speed scanning, squarified cushion treemaps, and historical snapshot comparisons.",
+    "link": "https://cpan.zip/packages/syndirstat/syn-dirstat-all-1.0.0.spk",
+    "fallback_link": "https://github.com/cwmoriarty/cwmoriarty/releases/download/v1.0.0/syn-dirstat-all-1.0.0.spk",
+    "md5": "ff933379e8adc1789d83c19e3a3cf8b2",
+    "sha256": "a90099369be8bfd510dc73616bfe2652c23d91264190a77a8077fe361afb2358",
+    "size": 4763648,
+    "icon": "https://cpan.zip/packages/syndirstat/icon_256.png",
+    "thumbnail": [
+      "https://cpan.zip/packages/syndirstat/icon_256.png"
+    ],
+    "maintainer": "cwmoriarty",
+    "maintainer_url": "https://github.com/cwmoriarty",
+    "distributor": "cwmoriarty",
+    "distributor_url": "https://cpan.zip/",
+    "changelog": "Initial release of SynDirStat with squarified cushion treemaps, SQLite historical scan diffing, and DSM 7 native integration.",
+    "type": 0,
+    "category": "Utilities",
+    "beta": false,
+    "conflictpkgs": "",
+    "deppkgs": "",
+    "quarantine": false,
+    "arch": [
+      "x86_64",
+      "r1000",
+      "v1000",
+      "broadwell",
+      "broadwellnk",
+      "apollolake",
+      "geminilake",
+      "denverton",
+      "arm64",
+      "rtd1296",
+      "rtd1619b",
+      "all"
+    ]
+  },
+  {
+    "package": "syn-dirstat",
+    "version": "1.0.0-0001",
+    "dsm_min_ver": "7.0-40000",
+    "name": "SynDirStat (x86_64)",
+    "desc": "SynDirStat 64-bit x86 optimized binary for Intel and AMD Synology NAS servers.",
+    "link": "https://cpan.zip/packages/syndirstat/syn-dirstat-x86_64-1.0.0.spk",
+    "fallback_link": "https://github.com/cwmoriarty/cwmoriarty/releases/download/v1.0.0/syn-dirstat-x86_64-1.0.0.spk",
+    "md5": "8f8e9794919a4cf636be3e3d1f4cc9b3",
+    "sha256": "5446a1944aa00eea8927e8cec4dfd2c35a748a94795e678a30bcd01f6b5eb988",
+    "size": 4763648,
+    "icon": "https://cpan.zip/packages/syndirstat/icon_256.png",
+    "thumbnail": [
+      "https://cpan.zip/packages/syndirstat/icon_256.png"
+    ],
+    "maintainer": "cwmoriarty",
+    "maintainer_url": "https://github.com/cwmoriarty",
+    "distributor": "cwmoriarty",
+    "distributor_url": "https://cpan.zip/",
+    "changelog": "Initial release for x86_64.",
+    "type": 0,
+    "category": "Utilities",
+    "beta": false,
+    "conflictpkgs": "",
+    "deppkgs": "",
+    "quarantine": false,
+    "arch": [
+      "x86_64",
+      "r1000",
+      "v1000",
+      "broadwell",
+      "broadwellnk",
+      "apollolake",
+      "geminilake",
+      "denverton"
+    ]
+  },
+  {
+    "package": "syn-dirstat",
+    "version": "1.0.0-0001",
+    "dsm_min_ver": "7.0-40000",
+    "name": "SynDirStat (ARM64)",
+    "desc": "SynDirStat 64-bit ARM optimized binary for Realtek and ARM-based Synology NAS servers.",
+    "link": "https://cpan.zip/packages/syndirstat/syn-dirstat-arm64-1.0.0.spk",
+    "fallback_link": "https://github.com/cwmoriarty/cwmoriarty/releases/download/v1.0.0/syn-dirstat-arm64-1.0.0.spk",
+    "md5": "02baf70b7e4954d394c2a059a7c6b88f",
+    "sha256": "69bc28857c9b44d16cffb97937d4c46815a9196b946059dff029751863dc5819",
+    "size": 4354560,
+    "icon": "https://cpan.zip/packages/syndirstat/icon_256.png",
+    "thumbnail": [
+      "https://cpan.zip/packages/syndirstat/icon_256.png"
+    ],
+    "maintainer": "cwmoriarty",
+    "maintainer_url": "https://github.com/cwmoriarty",
+    "distributor": "cwmoriarty",
+    "distributor_url": "https://cpan.zip/",
+    "changelog": "Initial release for arm64.",
+    "type": 0,
+    "category": "Utilities",
+    "beta": false,
+    "conflictpkgs": "",
+    "deppkgs": "",
+    "quarantine": false,
+    "arch": [
+      "arm64",
+      "rtd1296",
+      "rtd1619b"
+    ]
+  }
+]

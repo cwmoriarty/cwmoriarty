@@ -1,0 +1,63 @@
+name: SynDirStat CI Build & Test
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'syndirstat/**'
+      - '.github/workflows/syndirstat-build.yml'
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test-and-build:
+    name: Build & Test Native Synology Packages
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.23'
+          cache-dependency-path: syndirstat/backend/go.sum
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: syndirstat/frontend/package-lock.json
+
+      - name: Run Go Unit Tests
+        run: |
+          cd syndirstat/backend
+          go test -v -race ./...
+
+      - name: Build React Frontend
+        run: |
+          cd syndirstat/frontend
+          npm ci
+          npm run build
+
+      - name: Cross-Compile Binaries & Package SPKs
+        run: |
+          chmod +x syndirstat/scripts/*.sh
+          chmod +x syndirstat/packaging/scripts/*
+          chmod +x syndirstat/packaging/ui/index.cgi
+          ./syndirstat/scripts/build.sh
+          ./syndirstat/scripts/package.sh
+          ./syndirstat/scripts/update-repo.sh
+
+      - name: Validate Generated SPK Packages
+        run: |
+          for spk in packages/syndirstat/*.spk; do
+            echo "Checking $spk..."
+            tar -tf "$spk" | grep -q "INFO" || (echo "Missing INFO in $spk" && exit 1)
+            tar -tf "$spk" | grep -q "package.tgz" || (echo "Missing package.tgz in $spk" && exit 1)
+            tar -tf "$spk" | grep -q "scripts/start-stop-status" || (echo "Missing start-stop-status in $spk" && exit 1)
+            tar -tf "$spk" | grep -q "conf/privilege" || (echo "Missing privilege in $spk" && exit 1)
+          done
+          echo "All SPK archives verified successfully!"

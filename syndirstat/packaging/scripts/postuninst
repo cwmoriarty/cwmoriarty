@@ -1,0 +1,17 @@
+#!/bin/sh
+# SynDirStat postuninst script
+WEBMANDIR="/usr/syno/synoman/webman/3rdparty"
+if [ -d "${WEBMANDIR}/syn-dirstat" ]; then
+    rm -rf "${WEBMANDIR}/syn-dirstat"
+fi
+
+# Note: /var/packages/syn-dirstat/var is intentionally preserved during upgrades
+# to keep the SQLite historical scan snapshots intact!
+if [ "$SYNOPKG_PKG_STATUS" = "UNINSTALL" ]; then
+    SYNOPKG_PKGVAR="/var/packages/syn-dirstat/var"
+    if [ -d "${SYNOPKG_PKGVAR}" ]; then
+        rm -rf "${SYNOPKG_PKGVAR}"
+    fi
+fi
+
+exit 0

@@ -1,0 +1,14 @@
+#!/bin/sh
+# SynDirStat preinst script for Synology DSM
+# Validates environment before installation
+
+# DSM Version check
+if [ -f "/etc/VERSION" ]; then
+    . /etc/VERSION
+    if [ "$majorversion" -lt 7 ]; then
+        echo "SynDirStat requires Synology DSM 7.0 or higher. Detected DSM ${majorversion}.${minorversion}."
+        exit 1
+    fi
+fi
+
+exit 0

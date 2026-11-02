@@ -1,0 +1,14 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build intermediates
+syndirstat/build/
+syndirstat/backend/syndirstat
+syndirstat/backend/syndirstat-local
+*.log
+
+# OS artifacts
+.DS_Store
+Thumbs.db

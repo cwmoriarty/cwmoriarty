@@ -1,0 +1,13 @@
+{
+  ".syn-dirstat.App": {
+    "type": "app",
+    "title": "SynDirStat",
+    "desc": "Storage Treemap & Analysis",
+    "icon": "PACKAGE_ICON_{0}.PNG",
+    "url": "/webman/3rdparty/syn-dirstat/index.cgi",
+    "allUsers": false,
+    "allowMultiInstance": false,
+    "width": 1200,
+    "height": 780
+  }
+}
