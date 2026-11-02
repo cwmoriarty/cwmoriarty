@@ -65,121 +65,62 @@ ALL_SIZE=$(stat -f%z "${ALL_SPK}" 2>/dev/null || stat -c%s "${ALL_SPK}")
 
 echo ">>> Generating repository/packages.json & packages.json..."
 cat <<EOF > "${REPO_DIR}/packages.json"
-[
-  {
-    "package": "syn-dirstat",
-    "version": "1.0.0-0001",
-    "dsm_min_ver": "7.0-40000",
-    "name": "SynDirStat",
-    "desc": "Free, open-source native Synology DSM 7 storage analysis application inspired by WinDirStat, WizTree, SequoiaView, and SpaceSniffer. Features high-speed scanning, squarified cushion treemaps, and historical snapshot comparisons.",
-    "link": "${BASE_URL}/packages/syndirstat/syn-dirstat-all-1.0.0.spk",
-    "fallback_link": "${RELEASE_BASE}/syn-dirstat-all-1.0.0.spk",
-    "md5": "${ALL_MD5}",
-    "sha256": "${ALL_SHA256}",
-    "size": ${ALL_SIZE},
-    "icon": "${BASE_URL}/packages/syndirstat/icon_256.png",
-    "thumbnail": [
-      "${BASE_URL}/packages/syndirstat/icon_256.png"
-    ],
-    "maintainer": "cwmoriarty",
-    "maintainer_url": "https://github.com/cwmoriarty",
-    "distributor": "cwmoriarty",
-    "distributor_url": "${BASE_URL}/",
-    "changelog": "Initial release of SynDirStat with squarified cushion treemaps, SQLite historical scan diffing, and DSM 7 native integration.",
-    "type": 0,
-    "category": "Utilities",
-    "beta": false,
-    "conflictpkgs": "",
-    "deppkgs": "",
-    "quarantine": false,
-    "arch": [
-      "x86_64",
-      "r1000",
-      "v1000",
-      "broadwell",
-      "broadwellnk",
-      "apollolake",
-      "geminilake",
-      "denverton",
-      "arm64",
-      "rtd1296",
-      "rtd1619b",
-      "all"
-    ]
-  },
-  {
-    "package": "syn-dirstat",
-    "version": "1.0.0-0001",
-    "dsm_min_ver": "7.0-40000",
-    "name": "SynDirStat (x86_64)",
-    "desc": "SynDirStat 64-bit x86 optimized binary for Intel and AMD Synology NAS servers.",
-    "link": "${BASE_URL}/packages/syndirstat/syn-dirstat-x86_64-1.0.0.spk",
-    "fallback_link": "${RELEASE_BASE}/syn-dirstat-x86_64-1.0.0.spk",
-    "md5": "${X86_MD5}",
-    "sha256": "${X86_SHA256}",
-    "size": ${X86_SIZE},
-    "icon": "${BASE_URL}/packages/syndirstat/icon_256.png",
-    "thumbnail": [
-      "${BASE_URL}/packages/syndirstat/icon_256.png"
-    ],
-    "maintainer": "cwmoriarty",
-    "maintainer_url": "https://github.com/cwmoriarty",
-    "distributor": "cwmoriarty",
-    "distributor_url": "${BASE_URL}/",
-    "changelog": "Initial release for x86_64.",
-    "type": 0,
-    "category": "Utilities",
-    "beta": false,
-    "conflictpkgs": "",
-    "deppkgs": "",
-    "quarantine": false,
-    "arch": [
-      "x86_64",
-      "r1000",
-      "v1000",
-      "broadwell",
-      "broadwellnk",
-      "apollolake",
-      "geminilake",
-      "denverton"
-    ]
-  },
-  {
-    "package": "syn-dirstat",
-    "version": "1.0.0-0001",
-    "dsm_min_ver": "7.0-40000",
-    "name": "SynDirStat (ARM64)",
-    "desc": "SynDirStat 64-bit ARM optimized binary for Realtek and ARM-based Synology NAS servers.",
-    "link": "${BASE_URL}/packages/syndirstat/syn-dirstat-arm64-1.0.0.spk",
-    "fallback_link": "${RELEASE_BASE}/syn-dirstat-arm64-1.0.0.spk",
-    "md5": "${ARM_MD5}",
-    "sha256": "${ARM_SHA256}",
-    "size": ${ARM_SIZE},
-    "icon": "${BASE_URL}/packages/syndirstat/icon_256.png",
-    "thumbnail": [
-      "${BASE_URL}/packages/syndirstat/icon_256.png"
-    ],
-    "maintainer": "cwmoriarty",
-    "maintainer_url": "https://github.com/cwmoriarty",
-    "distributor": "cwmoriarty",
-    "distributor_url": "${BASE_URL}/",
-    "changelog": "Initial release for arm64.",
-    "type": 0,
-    "category": "Utilities",
-    "beta": false,
-    "conflictpkgs": "",
-    "deppkgs": "",
-    "quarantine": false,
-    "arch": [
-      "arm64",
-      "rtd1296",
-      "rtd1619b"
-    ]
-  }
-]
+{
+  "packages": [
+    {
+      "package": "syn-dirstat",
+      "version": "1.0.0-0001",
+      "dname": "SynDirStat",
+      "name": "SynDirStat",
+      "desc": "Free, open-source native Synology DSM 7 storage analysis application inspired by WinDirStat, WizTree, SequoiaView, and SpaceSniffer. Features high-speed scanning, squarified cushion treemaps, and historical snapshot comparisons.",
+      "link": "${BASE_URL}/packages/syndirstat/syn-dirstat-all-1.0.0.spk",
+      "fallback_link": "${RELEASE_BASE}/syn-dirstat-all-1.0.0.spk",
+      "md5": "${ALL_MD5}",
+      "sha256": "${ALL_SHA256}",
+      "size": ${ALL_SIZE},
+      "icon": "${BASE_URL}/packages/syndirstat/icon_256.png",
+      "thumbnail": [
+        "${BASE_URL}/packages/syndirstat/icon_72.png",
+        "${BASE_URL}/packages/syndirstat/icon_256.png"
+      ],
+      "thumbnail_retina": [
+        "${BASE_URL}/packages/syndirstat/icon_256.png"
+      ],
+      "qinst": true,
+      "qupgrade": true,
+      "qstart": true,
+      "startable": "yes",
+      "type": 0,
+      "category": "Utilities",
+      "beta": false,
+      "deppkgs": null,
+      "conflictpkgs": null,
+      "depsers": null,
+      "maintainer": "cwmoriarty",
+      "maintainer_url": "https://github.com/cwmoriarty",
+      "distributor": "cwmoriarty",
+      "distributor_url": "${BASE_URL}/",
+      "changelog": "Initial release of SynDirStat with squarified cushion treemaps, SQLite historical scan diffing, and DSM 7 native integration.",
+      "arch": [
+        "noarch",
+        "all",
+        "x86_64",
+        "arm64",
+        "rtd1296",
+        "rtd1619b",
+        "geminilake",
+        "apollolake",
+        "denverton",
+        "broadwell",
+        "broadwellnk",
+        "v1000",
+        "r1000"
+      ]
+    }
+  ]
+}
 EOF
 
-# Copy for multiple Synology Package Center endpoint conventions
 cp "${REPO_DIR}/packages.json" "${REPO_DIR}/package-index"
 cp "${REPO_DIR}/packages.json" "${DEST_ROOT}/packages.json"
 
@@ -211,123 +152,125 @@ cat <<EOF > "${DEST_ROOT}/index.html"
       padding: 40px 20px;
     }
     .container {
-      max-width: 820px;
+      max-width: 720px;
       width: 100%;
     }
-    .header {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 24px;
-    }
-    .logo {
-      font-size: 38px;
-    }
     h1 {
-      margin: 0;
-      font-size: 26px;
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #fff;
     }
-    .tagline {
+    p.subtitle {
       color: var(--text-muted);
-      margin-top: 4px;
-      font-size: 14px;
+      margin-bottom: 32px;
+      line-height: 1.5;
     }
     .card {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 8px;
+      border-radius: 12px;
       padding: 24px;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
     }
-    .url-box {
-      background: #0f1117;
-      border: 1px solid var(--blue);
-      border-radius: 6px;
-      padding: 12px 16px;
-      font-family: monospace;
-      font-size: 16px;
-      color: var(--blue);
-      margin: 12px 0;
-      user-select: all;
+    .card h2 {
+      font-size: 20px;
+      margin-top: 0;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
-    ol {
+    .card h2 img {
+      width: 32px;
+      height: 32px;
+    }
+    .steps {
+      margin-left: 20px;
       line-height: 1.8;
-      color: var(--text-muted);
-      padding-left: 20px;
+      color: var(--text);
     }
-    .btn {
+    code {
+      background: #0f1218;
+      padding: 3px 8px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      font-family: ui-monospace, Menlo, Monaco, monospace;
+      font-size: 14px;
+      color: #38bdf8;
+    }
+    .badge {
       display: inline-block;
-      background: var(--blue);
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      background: rgba(0, 130, 250, 0.15);
+      color: var(--blue);
+    }
+    .spk-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .spk-link {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #141720;
+      border: 1px solid var(--border);
+      padding: 12px 16px;
+      border-radius: 8px;
       color: #fff;
       text-decoration: none;
-      padding: 8px 16px;
-      border-radius: 4px;
-      font-weight: 500;
-      font-size: 13px;
-      margin-top: 8px;
+      font-size: 14px;
+      transition: border-color 0.15s;
     }
-    .pkg-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-    @media (max-width: 600px) {
-      .pkg-grid { grid-template-columns: 1fr; }
-    }
-    .pkg-item {
-      background: #191c26;
-      border: 1px solid var(--border);
-      padding: 16px;
-      border-radius: 6px;
-    }
-    .pkg-item h3 {
-      margin-top: 0;
-      font-size: 15px;
+    .spk-link:hover {
+      border-color: var(--blue);
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="header">
-      <div class="logo">🌳</div>
-      <div>
-        <h1>cpan.zip Package Repository</h1>
-        <div class="tagline">Official Synology DSM 7 Community Package Repository by Chris Moriarty</div>
-      </div>
-    </div>
+    <h1>cpan.zip</h1>
+    <p class="subtitle">Official Synology DSM Community Package Repository for SynDirStat.</p>
 
     <div class="card">
-      <h2>Install through Synology Package Center</h2>
-      <p style="color: var(--text-muted); line-height: 1.5;">
-        Add this community repository URL directly into your Synology DSM Package Center to install and receive automatic updates for SynDirStat:
-      </p>
-
-      <div class="url-box">https://cpan.zip</div>
-
-      <h3>Setup Instructions:</h3>
-      <ol>
-        <li>Log into your Synology DSM web desktop (DSM 7.x or 6.x).</li>
+      <h2>How to Add to Package Center</h2>
+      <ol class="steps">
+        <li>Log into your Synology DSM desktop (DSM 7.x).</li>
         <li>Open <strong>Package Center</strong>.</li>
-        <li>Click <strong>Settings</strong> (top right).</li>
-        <li>Select the <strong>Package Sources</strong> tab and click <strong>Add</strong>.</li>
-        <li>Name: <code>cpan.zip</code><br>Location: <code>https://cpan.zip</code></li>
-        <li>Click <strong>OK</strong>. In Package Center, switch to the <strong>Community</strong> tab and click <strong>Install</strong> next to SynDirStat.</li>
+        <li>Click <strong>Settings</strong> (top right) ➔ <strong>Package Sources</strong> ➔ <strong>Add</strong>.</li>
+        <li>Name: <code>cpan.zip</code></li>
+        <li>Location: <code>https://cpan.zip</code></li>
+        <li>Click <strong>OK</strong>, then browse the <strong>Community</strong> tab.</li>
       </ol>
     </div>
 
     <div class="card">
-      <h2>Direct Package Downloads (.spk)</h2>
-      <div class="pkg-grid">
-        <div class="pkg-item">
-          <h3>SynDirStat for x86_64</h3>
-          <p style="font-size: 12px; color: var(--text-muted);">For Intel & AMD based Synology NAS (Plus, XS, FS series)</p>
-          <a class="btn" href="./packages/syndirstat/syn-dirstat-x86_64-1.0.0.spk">Download x86_64 SPK</a>
-        </div>
-        <div class="pkg-item">
-          <h3>SynDirStat for ARM64</h3>
-          <p style="font-size: 12px; color: var(--text-muted);">For Realtek RTD1296, RTD1619b and ARM64 series (Value/J series)</p>
-          <a class="btn" href="./packages/syndirstat/syn-dirstat-arm64-1.0.0.spk">Download ARM64 SPK</a>
-        </div>
+      <h2>
+        <img src="packages/syndirstat/icon_256.png" alt="SynDirStat Icon" />
+        SynDirStat <span class="badge">v1.0.0-0001</span>
+      </h2>
+      <p style="color: var(--text-muted); line-height: 1.6;">
+        Free, open-source native Synology DSM 7 storage visualization inspired by WinDirStat and WizTree. Features high-speed recursive scanning, interactive squarified cushion treemaps, and historical snapshot comparisons.
+      </p>
+
+      <div class="spk-links">
+        <a class="spk-link" href="packages/syndirstat/syn-dirstat-all-1.0.0.spk">
+          <span>📦 <strong>Universal (noarch)</strong> — Recommended for all models</span>
+          <span style="color: var(--text-muted);">SPK (${ALL_SIZE} bytes)</span>
+        </a>
+        <a class="spk-link" href="packages/syndirstat/syn-dirstat-x86_64-1.0.0.spk">
+          <span>📦 <strong>x86_64</strong> — Intel / AMD 64-bit</span>
+          <span style="color: var(--text-muted);">SPK (${X86_SIZE} bytes)</span>
+        </a>
+        <a class="spk-link" href="packages/syndirstat/syn-dirstat-arm64-1.0.0.spk">
+          <span>📦 <strong>ARM64</strong> — Realtek RTD1296 & ARM 64-bit</span>
+          <span style="color: var(--text-muted);">SPK (${ARM_SIZE} bytes)</span>
+        </a>
       </div>
     </div>
   </div>
@@ -339,6 +282,6 @@ echo "======================================================"
 echo " Community Package Repository generated successfully:"
 echo " - ${REPO_DIR}/packages.json"
 echo " - ${REPO_DIR}/package-index"
-echo " - ${REPO_ROOT}/packages.json"
-echo " - ${REPO_ROOT}/index.html"
+echo " - ${DEST_ROOT}/packages.json"
+echo " - ${DEST_ROOT}/index.html"
 echo "======================================================"

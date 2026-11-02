@@ -47,8 +47,41 @@ build_spk() {
     mkdir -p "${WORK_DIR}/conf"
 
     # 1. Copy binary
-    cp "${BUILD_BIN_DIR}/${BINARY_SOURCE}" "${WORK_DIR}/package/bin/syndirstat"
-    chmod 755 "${WORK_DIR}/package/bin/syndirstat"
+    if [ "${ARCH_NAME}" = "all" ]; then
+        cp "${BUILD_BIN_DIR}/syndirstat-amd64" "${WORK_DIR}/package/bin/syndirstat-amd64"
+        cp "${BUILD_BIN_DIR}/syndirstat-arm64" "${WORK_DIR}/package/bin/syndirstat-arm64"
+        chmod 755 "${WORK_DIR}/package/bin/syndirstat-amd64" "${WORK_DIR}/package/bin/syndirstat-arm64"
+
+        cat << 'EOF' > "${WORK_DIR}/package/bin/syndirstat"
+#!/bin/sh
+ARCH="$(uname -m)"
+DIR="$(cd "$(dirname "$0")" && pwd)"
+case "$ARCH" in
+    x86_64|amd64)
+        exec "$DIR/syndirstat-amd64" "$@"
+        ;;
+    aarch64|arm64)
+        exec "$DIR/syndirstat-arm64" "$@"
+        ;;
+    armv7*|armv8*)
+        if [ -x "$DIR/syndirstat-arm64" ]; then
+            exec "$DIR/syndirstat-arm64" "$@"
+        fi
+        ;;
+    *)
+        if [ -x "$DIR/syndirstat-amd64" ]; then
+            exec "$DIR/syndirstat-amd64" "$@"
+        else
+            exec "$DIR/syndirstat-arm64" "$@"
+        fi
+        ;;
+esac
+EOF
+        chmod 755 "${WORK_DIR}/package/bin/syndirstat"
+    else
+        cp "${BUILD_BIN_DIR}/${BINARY_SOURCE}" "${WORK_DIR}/package/bin/syndirstat"
+        chmod 755 "${WORK_DIR}/package/bin/syndirstat"
+    fi
 
     # 2. Copy UI config and multi-resolution icons
     cp "${PACKAGING_DIR}/ui/config" "${WORK_DIR}/package/ui/config"

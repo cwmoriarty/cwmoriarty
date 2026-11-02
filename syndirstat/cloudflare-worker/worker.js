@@ -17,22 +17,27 @@
 const PACKAGES = [
   {
     package: "syn-dirstat",
-    version: "1.0.0",
+    version: "1.0.0-0001",
     dname: "SynDirStat",
+    name: "SynDirStat",
     desc: "Interactive WizTree/WinDirStat style storage visualization and treemap analyzer for Synology DSM 7.",
-    maintainer: "Chris Moriarty",
-    maintainer_url: "https://cwmoriarty.com",
-    distributor: "CPAN.zip",
+    maintainer: "cwmoriarty",
+    maintainer_url: "https://github.com/cwmoriarty",
+    distributor: "cwmoriarty",
     distributor_url: "https://cpan.zip",
-    changelog: "Initial release: interactive squarified and cushion treemap, volume analysis, historical scans, and diff comparison.",
+    changelog: "1.0.0-0001: Initial release with cushion treemaps, historical scan comparisons, and DSM 7 native integration.",
     qinst: true,
     qupgrade: true,
     qstart: true,
-    deppkgs: "",
-    conflictpkgs: "",
     startable: "yes",
-    size: 4718592,
-    md5: "450bc36868d4c3ea4e1834e022f4b232",
+    type: 0,
+    category: "Utilities",
+    beta: false,
+    deppkgs: null,
+    conflictpkgs: null,
+    depsers: null,
+    size: 9123840,
+    md5: "de14af65ce0f3cad4c7888d199178527",
     thumbnail: [
       "https://cpan.zip/packages/syndirstat/icon_72.png",
       "https://cpan.zip/packages/syndirstat/icon_256.png"
@@ -78,11 +83,16 @@ export default {
         build = parseInt(url.searchParams.get("build") || "40000", 10);
       }
 
-      // Pick matching SPK link based on architecture
+      // Pick matching SPK link, size, and MD5 based on architecture
       let spkUrl = "https://cpan.zip/packages/syndirstat/syn-dirstat-all-1.0.0.spk";
+      let spkSize = 9123840;
+      let spkMd5 = "de14af65ce0f3cad4c7888d199178527";
+
       const archLower = String(arch).toLowerCase();
       if (archLower.includes("arm64") || archLower.includes("aarch64") || archLower.includes("rtd1296")) {
         spkUrl = "https://cpan.zip/packages/syndirstat/syn-dirstat-arm64-1.0.0.spk";
+        spkSize = 4403200;
+        spkMd5 = "27ac81b5dc66cfddf5f9b29d4b0bfe9b";
       } else if (
         archLower.includes("x86") ||
         archLower.includes("x64") ||
@@ -93,11 +103,15 @@ export default {
         archLower.includes("denverton")
       ) {
         spkUrl = "https://cpan.zip/packages/syndirstat/syn-dirstat-x86_64-1.0.0.spk";
+        spkSize = 4812800;
+        spkMd5 = "86376fb770207aeb0bfc0d593621abe8";
       }
 
       const packages = PACKAGES.map((pkg) => ({
         ...pkg,
-        link: spkUrl
+        link: spkUrl,
+        size: spkSize,
+        md5: spkMd5
       }));
 
       return new Response(JSON.stringify({ packages }), {
