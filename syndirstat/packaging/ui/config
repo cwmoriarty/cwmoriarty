@@ -1,13 +1,14 @@
 {
-  ".syn-dirstat.App": {
-    "type": "app",
-    "title": "SynDirStat",
-    "desc": "Storage Treemap & Analysis",
-    "icon": "PACKAGE_ICON_{0}.PNG",
-    "url": "/webman/3rdparty/syn-dirstat/index.cgi",
-    "allUsers": false,
-    "allowMultiInstance": false,
-    "width": 1200,
-    "height": 780
+  ".url": {
+    "SYNO.SDS.SynDirStat.Instance": {
+      "allUsers": true,
+      "desc": "SynDirStat Storage Treemap & Analysis",
+      "icon": "images/syndirstat-{0}.png",
+      "port": "8742",
+      "protocol": "http",
+      "title": "SynDirStat",
+      "type": "url",
+      "url": "/"
+    }
   }
 }
