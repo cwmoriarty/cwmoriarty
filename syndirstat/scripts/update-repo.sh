@@ -10,8 +10,21 @@ set -e
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ROOT_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
 REPO_ROOT="$(cd "${ROOT_DIR}/.." && pwd)"
-PACKAGES_DIR="${REPO_ROOT}/packages/syndirstat"
-REPO_DIR="${REPO_ROOT}/repository"
+
+if [ -d "${ROOT_DIR}/packages" ]; then
+    PACKAGES_DIR="${ROOT_DIR}/packages/syndirstat"
+    REPO_DIR="${ROOT_DIR}/repository"
+    DEST_ROOT="${ROOT_DIR}"
+elif [ -d "${REPO_ROOT}/packages" ]; then
+    PACKAGES_DIR="${REPO_ROOT}/packages/syndirstat"
+    REPO_DIR="${REPO_ROOT}/repository"
+    DEST_ROOT="${REPO_ROOT}"
+else
+    PACKAGES_DIR="${ROOT_DIR}/packages/syndirstat"
+    REPO_DIR="${ROOT_DIR}/repository"
+    DEST_ROOT="${ROOT_DIR}"
+fi
+
 BASE_URL="https://cpan.zip"
 RELEASE_BASE="https://github.com/cwmoriarty/cwmoriarty/releases/download/v1.0.0"
 
@@ -168,10 +181,10 @@ EOF
 
 # Copy for multiple Synology Package Center endpoint conventions
 cp "${REPO_DIR}/packages.json" "${REPO_DIR}/package-index"
-cp "${REPO_DIR}/packages.json" "${REPO_ROOT}/packages.json"
+cp "${REPO_DIR}/packages.json" "${DEST_ROOT}/packages.json"
 
 echo ">>> Generating repository landing page (index.html)..."
-cat <<EOF > "${REPO_ROOT}/index.html"
+cat <<EOF > "${DEST_ROOT}/index.html"
 <!DOCTYPE html>
 <html lang="en">
 <head>

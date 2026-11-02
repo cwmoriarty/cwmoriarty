@@ -1,0 +1,9 @@
+# Binaries and build outputs
+build/work_*
+*.tmp
+__pycache__/
+*.pyc
+
+# Node modules
+node_modules/
+.DS_Store

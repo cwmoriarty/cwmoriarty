@@ -13,7 +13,14 @@ REPO_ROOT="$(cd "${ROOT_DIR}/.." && pwd)"
 BUILD_DIR="${ROOT_DIR}/build"
 BUILD_BIN_DIR="${BUILD_DIR}/bin"
 PACKAGING_DIR="${ROOT_DIR}/packaging"
-PACKAGES_OUTPUT="${REPO_ROOT}/packages/syndirstat"
+
+if [ -d "${ROOT_DIR}/packages" ]; then
+    PACKAGES_OUTPUT="${ROOT_DIR}/packages/syndirstat"
+elif [ -d "${REPO_ROOT}/packages" ]; then
+    PACKAGES_OUTPUT="${REPO_ROOT}/packages/syndirstat"
+else
+    PACKAGES_OUTPUT="${ROOT_DIR}/packages/syndirstat"
+fi
 
 mkdir -p "${PACKAGES_OUTPUT}"
 
