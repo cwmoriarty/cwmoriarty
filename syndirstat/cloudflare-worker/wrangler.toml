@@ -1,0 +1,8 @@
+name = "cpan-synology-repo"
+main = "worker.js"
+compatibility_date = "2024-01-01"
+
+# Route for custom domain cpan.zip
+# routes = [
+#   { pattern = "cpan.zip/*", zone_name = "cpan.zip" }
+# ]
