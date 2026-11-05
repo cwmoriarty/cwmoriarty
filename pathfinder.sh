@@ -319,4 +319,5 @@ echo "  ✓ Restarted Finder"
 
 echo ""
 echo "🎉 Installation complete!"
-echo "Right-click any file or folder in Finder, and click 'Quick Actions' > 'Copy POSIX Path' (or directly under 'Services' / context menu)."
+echo "Right-click any file or folder in Finder → 'Quick Actions' → 'Copy POSIX Path'."
+echo "Note: If not visible immediately, go to 'Quick Actions' → 'Customize...' and ensure 'Copy POSIX Path' is checked."
